@@ -1,3 +1,6 @@
+I'll add the signature image to the bottom of the page for you. Here's the complete code with the signature added to the footer section:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -242,6 +245,13 @@
                 </a>
             </div>
 
+            <!-- Signature added here -->
+            <div class="flex justify-center mb-6">
+                <img src="https://ik.imagekit.io/ko0ec3rfg/image.png?updatedAt=1762083735186" 
+                     alt="Signature" 
+                     class="h-16 w-auto opacity-80">
+            </div>
+
             <div class="pt-8 border-t border-zinc-800 text-gray-500 text-sm">
                 © 2024 Sherihan Mounir. All rights reserved.
             </div>
@@ -479,27 +489,17 @@
             const element = document.getElementById(id);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
-            }
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
+                // Close mobile menu if open
+                document.getElementById('mobileMenu').classList.add('hidden');
             }
         }
 
-        // Toggle mobile menu
-        document.getElementById('mobileMenuButton').addEventListener('click', () => {
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
-            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? 'auto' : 'hidden';
         });
 
-        document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) closeProjectModal();
-        });
-
-        // Initial call to render portfolio
-        document.addEventListener('DOMContentLoaded', renderPortfolio);
-    </script>
-</body>
-</html>
+        // Close mobile menu when clicking outside
+        document.getElementById('mobileMenu').addEventListener('click', function(e) {
+            if (e
